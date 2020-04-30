@@ -41,5 +41,4 @@ scheduler will refresh automatically to observe these changes.
         - 30 seconds to account for delay
     - When minute turns 0 (at turn of every hour)
         - Update hour & text area color for current & previous time block
-    - Does not account for new day
-        - Refresh manually
+    - Webpage reloads automatically at new day

@@ -16,9 +16,9 @@ $(document).ready(function() {
             hour.addClass("hour pt-4 text-center border-top border-dark");  // style override
             hour.attr("data-hourindex", i);    // for access to update time
             hour.width("75px");      // set width
-            if (i < 12) {         // if hour less than 12
+            if (i <= 12) {         // if hour less than 12
                 hour.text(i + " AM");    // set hour
-            } else if (i >= 12) {     // if hour greater than 12
+            } else if (i > 12) {     // if hour greater than 12
                 hour.text((i - 12) + " PM");    // adjust hour to standard hour
             }
             timeblockRow.append(hour);    // append hour to current row
@@ -106,6 +106,12 @@ $(document).ready(function() {
         var updateCurrentTime = setInterval(     // set interval to update current time / reload webpage
             function() {
                 if (moment().minute() == 0) {   // if minute equals 0 (hour has changed)
+                    var currentDate = localStorage.getItem("currentDate");   // get current stored date
+                    if (currentDate != moment().date() && moment().hour() == 0) {   //  compare to current date
+                        localStorage.setItem("currentDate", moment().date());  // restore date if new day
+                        location.reload();
+                    }
+
                     var currentTimeBlock = $(".row[data-rowindex=" + (moment().hour() - 9) + "]")[0];   // get current timeblock
                     if (currentTimeBlock) {
                         currentTimeBlock.children[1].classList.remove("bg-success");  // remove text area green
@@ -150,8 +156,10 @@ $(document).ready(function() {
     var currentDayField = $("#currentDay");    // get current day element
     currentDayField.text(currentDay);      // set current day element
 
+    localStorage.setItem("currentDate", moment().date());  // store current date for automatic day reset
+
     appendTimeblocks();       // call appendTimeblocks() 
     fillEvents();            // call fillEvents()
     updateTime();           // call updateTime()
-    
+
 });
