@@ -17,12 +17,11 @@ gray, the current time block will be colored red while also updating the current
 and, each future time block will be colored green. At the turn of each hour, the 
 scheduler will refresh automatically to observe these changes. 
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The script is rather simple. And we will go 
-through the logic in no particular order.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; We will go through the logic in no particular order.
 
 * Run script after DOM loads
 * Function to append time blocks
-    - Create & append row
+    - Create & append row as timeblock
     - Create, set, & append hour to row
     - Create, set, & append text area to row
     - Create, set, & append save button to row
@@ -38,6 +37,9 @@ through the logic in no particular order.
     - Get day & month
 * Set interval to update current time
     - Find current time block by hour
-    - Update current hour time text every minute
+    - Update current hour time text every 30000 milliseconds (30 seconds)
+        - 30 seconds to account for delay
     - When minute turns 0 (at turn of every hour)
         - Update hour & text area color for current & previous time block
+    - Does not account for new day
+        - Refresh manually

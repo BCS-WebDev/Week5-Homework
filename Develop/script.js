@@ -8,7 +8,7 @@ $(document).ready(function() {
 
         for (var i = 9; i < 18; i++) {      // for each hour from 9am - 17pm
             var timeblockRow = $("<div>");      // create div
-            timeblockRow.addClass("row");      // give div row class
+            timeblockRow.addClass("row timeblock");      // give div row class
             timeblockRow.attr("data-rowindex", i - 9);    // giv div dataset attribute row index for access from save button
             container.append(timeblockRow);     // append to container
 
@@ -45,9 +45,6 @@ $(document).ready(function() {
             saveButton.append(saveIcon);   // append save icon to save button
         }
     }
-
-    // events initialized to empty strings
-    var timeblockEvents = ["", "", "", "", "", "", "", "", ""];
 
     // fill timeblock with respective events
     function fillEvents() {
@@ -111,8 +108,8 @@ $(document).ready(function() {
                 if (moment().minute() == 0) {   // if minute equals 0 (hour has changed)
                     var currentTimeBlock = $(".row[data-rowindex=" + (moment().hour() - 9) + "]")[0];   // get current timeblock
                     if (currentTimeBlock) {
-                        currentTimeBlock.children[1].removeClass("bg-success");  // remove text area green
-                        currentTimeBlock.children[1].addClass("bg-danger");   // add text area red
+                        currentTimeBlock.children[1].classList.remove("bg-success");  // remove text area green
+                        currentTimeBlock.children[1].classList.add("bg-danger");   // add text area red
                     }
 
                     var prevTimeBlock = $(".row[data-rowindex=" + (moment().hour() - 10) + "]")[0];   // get current timeblock
@@ -137,7 +134,7 @@ $(document).ready(function() {
                     currentHourElement.textContent = moment().format('h:mm A');   // update time
                 }
             },
-            60000   // every 60000 milliseconds (60 seconds)
+            30000   // every 30000 milliseconds (30 seconds)
         );
     }
 
@@ -145,6 +142,8 @@ $(document).ready(function() {
     var daysOfTheWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     var monthsOfTheYear = ["January", "February", "March", "April", "May", "June", 
                             "July", "August", "September", "October", "November", "December"];
+    // events initialized to empty strings
+    var timeblockEvents = ["", "", "", "", "", "", "", "", ""];
 
     var dateSuffix = getDateSuffix();   // get date suffix
     var currentDay = getCurrentDay(dateSuffix);   // get current day with date suffix
@@ -154,5 +153,5 @@ $(document).ready(function() {
     appendTimeblocks();       // call appendTimeblocks() 
     fillEvents();            // call fillEvents()
     updateTime();           // call updateTime()
-
+    
 });
