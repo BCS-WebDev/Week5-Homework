@@ -1,7 +1,7 @@
 # Week5-Homework
 BootCampSpot Web Development - Week 4 Homework
 
-# Notes on Quiz Schedulers
+# Notes on Day Schedulers
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Schedulers work like virtual personal assistants
 that keep track of and remind you of your schedule. You tell it to alert when an event
 is supposed to take place or periodically warn you of upcoming due dates. Typically,
