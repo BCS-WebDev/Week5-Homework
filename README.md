@@ -1,7 +1,7 @@
-# Week5-Homework
+# Day Scheduler
 BootCampSpot Web Development - Week 5 Homework
 
-# Notes on Day Schedulers
+## Notes on Day Schedulers
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Schedulers work like virtual personal assistants
 that keep track of and remind you of your schedule. You tell it to alert when an event
 is supposed to take place or periodically warn you of upcoming due dates. Typically,
@@ -9,7 +9,7 @@ these schedulers take the form of a calendar because people tend to plan months 
 and not just days. But however big or small, the scheduler works the same way in that
 you create an event, store it, and set reminders, by the hour, day, month, or year. 
 
-# Motive & Action
+## Motive & Action
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; In our case, we are tasked with creating a day
 scheduler for the typical work day. Each hour from 9AM to 5PM will have its own 
 time block where the user can store events. Each past time block will be colored 
