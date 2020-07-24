@@ -1,7 +1,7 @@
 # Day Scheduler
 BootCampSpot Web Development - Week 5 Homework
 
-![Preview](https://github.com/BCS-WebDev/Week5-Homework/blob/master/Assets/05-third-party-apis-homework-demo.gif)
+![Preview](https://github.com/BCS-WebDev/Week5-Homework/blob/master/Assets/DayScheduler-min.gif)
 
 ## Notes on Day Schedulers
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Schedulers work like virtual personal assistants
